@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::redirect('/', '/cars', 301);
+
 Route::resource('/cars', CarController::class);
 
 // Route::get('/', function () {
