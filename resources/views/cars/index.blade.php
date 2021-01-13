@@ -6,8 +6,22 @@
             <h1 class="text-5xl uppercase bold">Cars</h1>
         </div>
 
+        <div class="pt-10">
+            <a href="cars/create"
+                class="border-b-2 pb-2 border-dotted italic text-gray-500">
+                Add a new car &rarr;
+            </a>
+        </div>
+
         <div class="w-5/6 py-10">
             @foreach ($cars as $car)
+                <div class="float-right">
+                    <a href="cars/{{ $car->id }}/edit"
+                        class="border-b-2 pb-2 border-dotted italic text-green-500">
+                        Edit &rarr;
+                    </a>
+                </div>
+
                 <div class="m-auto">
                     <span class="uppercase text-blue-500 font-bold text-xs italic">
                         Founded: {{ $car->founded }}

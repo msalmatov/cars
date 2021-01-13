@@ -39,7 +39,19 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $car = new Car;
+        // $car->name = $request->input('name');
+        // $car->founded = $request->input('founded');
+        // $car->description = $request->input('description');
+        // $car->save();
+
+        $car = Car::create([
+            'name' => $request->input('name'),
+            'founded' => $request->input('founded'),
+            'description' => $request->input('description')
+        ]);
+
+        return redirect('/cars');
     }
 
     /**
@@ -61,7 +73,8 @@ class CarController extends Controller
      */
     public function edit($id)
     {
-        //
+        $car = Car::find($id)->first();
+        return view('cars.edit')->with('car', $car);
     }
 
     /**
@@ -73,7 +86,13 @@ class CarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $car = Car::where('id', $id)->update([
+            'name' => $request->input('name'),
+            'founded' => $request->input('founded'),
+            'description' => $request->input('description')
+        ]);
+
+        return redirect('/cars');
     }
 
     /**
