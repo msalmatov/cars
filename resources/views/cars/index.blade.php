@@ -20,6 +20,15 @@
                         class="border-b-2 pb-2 border-dotted italic text-green-500">
                         Edit &rarr;
                     </a>
+
+                    <form action="cars/{{ $car->id }}" method="POST" class="pt-3">
+                        @csrf
+                        @method('delete')
+
+                        <button type="submit" class="border-b-2 pb-2 border-dotted italic text-red-500">
+                            Delete &rarr;
+                        </button>
+                    </form>
                 </div>
 
                 <div class="m-auto">
